@@ -2,7 +2,7 @@ package Sys::Trace;
 use strict;
 use Sys::Trace::Results;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 =head1 NAME
 
@@ -32,7 +32,7 @@ calls it makes.
 This can be useful during testing as a way to ensure a particular file is
 actually opened, or another hard to test interaction actually occurs.
 
-Currently supported tracing mechanisms are strace and ktrace.
+Currently supported tracing mechanisms are ktrace, strace and truss.
 
 =head1 METHODS
 
@@ -41,6 +41,7 @@ Currently supported tracing mechanisms are strace and ktrace.
 our @INTERFACES = qw(
   Sys::Trace::Impl::Strace
   Sys::Trace::Impl::Ktrace
+  Sys::Trace::Impl::Truss
 );
 
 our @ISA;
@@ -60,6 +61,10 @@ B<exec>: Program and arguments to execute
 =item *
 
 B<pid>: PID of program to trace
+
+=item *
+
+B<follow_forks>: Follow child processes too (default is 1, set to 0 to disable)
 
 =back
 
