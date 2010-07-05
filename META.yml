@@ -23,4 +23,4 @@ requires:
 resources:
   bugtracker: http://github.com/dgl/perl-Sys-Trace/issues
   repository: git://github.com/dgl/perl-Sys-Trace
-version: 0.02
+version: 0.03
